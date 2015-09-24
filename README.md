@@ -340,3 +340,251 @@ Sebastian Nordhoff. "[Optik Fysik1a](https://www.overleaf.com/articles/optik-fys
 \end{document}
 
 ```
+
+
+
+
+
+Sebastian Nordhoff. "[한글발표 (A Presentation using Hangul)](https://www.overleaf.com/articles/hangeulbalpyo-a-presentation-using-hangul/cvctjmvfhbvw#.VgP_at9zjCI)" 
+
+![](https://48ed35b78c1314685eae-5c768d3cc8f4223c2d92068bc1d68611.ssl.cf5.rackcdn.com/gallery-images/7f75b71d9bd013c1ad78962f00e1e4d44bcf6cab.jpeg)
+
+```
+\documentclass{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+
+\usepackage{kotex} 
+
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+
+\title[Your Short Title]{웹브라우저로 LaTex 문서 작성하기}
+\author{이영석}
+\institute{충남대학교}
+\date{2015.7.16}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Uncomment these lines for an automatically generated outline.
+%\begin{frame}{Outline}
+%  \tableofcontents
+%\end{frame}
+
+
+\section{왜 Latex ?}
+
+\begin{frame}{왜 Latex ?}
+
+\begin{itemize}
+\item 장점
+\begin{itemize}
+\item 오픈소스 문서편집/조판 SW
+\item 많은 양 편집, 공동 편집
+\item 대학원, 논문
+\item 문서파일 pdf 통일
+\end{itemize}
+
+\item 단점
+\begin{itemize}
+\item 초기진입장벽
+\item WISIG이 아니다.
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\section{ShareLaTeX}
+
+%\subsection{First Subsection}
+
+\begin{frame}{ShareLaTeX}{http://www.sharelatex.com}
+  \begin{itemize}
+  \item {
+    웹 브라우저에서 ShareLaTeX 접속.
+  }
+  \item {
+    가입 후 이용: 가입할 때 추천하면 용량 증가.
+  }
+  \item {Template 활용: 이력서, 보고서, 논문, 발표자료.}
+  \item {한글 패키지 사용 주의.}
+  
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}{ShareLaTeX 화면}{http://www.sharelatex.com}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.35]{fig-sharelatex.png}
+\caption{ShareLaTeX}
+\label{fig:sharelatex}
+\end{figure}
+
+\end{frame}
+
+\section{Overleaf}
+
+% You can reveal the parts of a slide one at a time
+% with the \pause command:
+\begin{frame}{Overleaf}{http://www.overleaf.com}
+  \begin{itemize}
+  \item {
+    웹 브라우저에서 Overleaf 접속.
+    %\pause % The slide will pause after showing the first item
+  }
+  \item {   
+    가입 후 이용.
+  }
+  % You can also specify when the content should appear
+  % by using <n->:
+  \item {
+    Template 활용.
+  }
+  \item {
+    \alert{영어 스펠 자동 체크 기능이 좋음.}
+  }
+  \item {
+    \alert{실시간 컴파일 기능이 좋음.}
+  }
+  % or you can use the \uncover command to reveal general
+  % content (not just \items):
+  %\item<5-> {
+   % Fifth item. \uncover<6->{Extra text in the fifth item.}
+  %}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Overleaf 화면}{http://www.overleaf.com}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.3]{fig-overleaf.png}
+\caption{Overleaf}
+\label{fig:overleaf}
+\end{figure}
+
+\end{frame}
+
+
+\section{SageMath}
+\begin{frame}{SageMath}{https://cloud.sagemath.com}
+  \begin{itemize}
+  \item {
+    웹 브라우저에서 SageMath 접속.
+    %\pause % The slide will pause after showing the first item
+  }
+  \item {   
+    가입 후 이용.
+  }
+  % You can also specify when the content should appear
+  % by using <n->:
+  \item {
+    Template 활용.
+  }
+  \item {
+    R, Python, Terminal, SageMath 기능이 있음.
+  }
+  \item {
+    SageMath는 오픈소스.
+  }
+  % or you can use the \uncover command to reveal general
+  % content (not just \items):
+  %\item<5-> {
+   % Fifth item. \uncover<6->{Extra text in the fifth item.}
+  %}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{SageMath 화면}{https://cloud.sagemath.com}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.2]{fig-sagemath.png}
+\caption{Sagemath}
+\label{fig:sagemath}
+\end{figure}
+
+\end{frame}
+
+
+
+% Placing a * after \section means it will not show in the
+% outline or table of contents.
+\section*{Summary}
+
+\begin{frame}{Summary}
+  \begin{itemize}
+  \item
+    \alert{LaTeX} 문서를 웹 브라우저로 작성해보기.
+  \item
+    \alert{ShareLaTex, Overleaf}는 Dropbox, GitHub와도 연동.
+  
+  \end{itemize}
+  
+  \begin{itemize}
+  \item
+    활용
+    \begin{itemize}
+    \item
+      종합설계.
+    \item
+      이력서.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+
+% All of the following is optional and typically not needed. 
+\appendix
+\section<presentation>*{\appendixname}
+\subsection<presentation>*{For Further Reading}
+
+\begin{frame}[allowframebreaks]
+  \frametitle<presentation>{For Further Reading}
+    
+  \begin{thebibliography}{10}
+    
+  \beamertemplatebookbibitems
+  % Start with overview books.
+
+  \bibitem{Author1990}
+    KTUG.
+    \newblock {\em http://www.ktug.org}.
+    
+    
+  \beamertemplatearticlebibitems
+  % Followed by interesting articles. Keep the list short. 
+
+  \bibitem{Someone2000}
+    S.~Someone.
+    \newblock On this and that.
+    \newblock {\em Journal of This and That}, 2(1):50--100,
+    2000.
+  \end{thebibliography}
+\end{frame}
+
+
+
+\end{document}
+
+
+```
