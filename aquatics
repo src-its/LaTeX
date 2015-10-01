@@ -1,0 +1,19 @@
+\documentclass{beamer}
+
+\usetheme{simple}
+
+
+\usepackage{lmodern}
+\usepackage[scale=2]{ccicons}
+\setwatermark{\includegraphics[height=8cm]{Capture.png}}\title{Exciting Title!}
+\subtitle{with some CA}
+\date{\today}
+\author{@theCADesk}
+
+\begin{document}
+
+\maketitle
+
+
+
+\end{document}
