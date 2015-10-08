@@ -1,12 +1,24 @@
 import argparse
+import subprocess
+
+def create_pdf(input_filename, output_filename):
+    process = subprocess.Popen([
+        "C:\\Program Files (x86)\\MiKTeX 2.9\\miktex\\bin\\latex.exe",
+        "-output-format=pdf",
+        "-job-name=" + output_filename, input_filename])
+    process.wait()
 
 p = argparse.ArgumentParser()
-p.add_argument('-o', type=argparse.FileType('w'), metavar='destfile',
+p.add_argument('-o', type=argparse.FileType('w'), metavar='output',
                help='File to be written to.')
-p.add_argument('--image', '-i', type=str, help='Background image for your poster.')
 flags = p.parse_args()
 
-image = r"" + input("Where is the image you want to use?")
+ca = input("Who's hosting this event? ")
+eventdate = input("When's it happening? ")
+title = input("What's the event's title? ")
+image = input("Where is the background image you want to use? ")
+
+image = image.replace("\\", "/")
 
 top = r"""\documentclass{beamer}
 
@@ -16,11 +28,14 @@ top = r"""\documentclass{beamer}
 \usepackage{lmodern}
 \usepackage[scale=2]{ccicons}
 """
-image = "\setwatermark{\includegraphics[height=8cm]{""" + flags.image + "}}"
+watermark = "\setwatermark{\includegraphics[height=8cm]{""" + image + "}}"
 
-end = r"""\title{Exciting Title!}
-\subtitle{with some CA}
-\date{\today}
+maketitle = r"""\title{""" + title + r"""}
+"""
+name = r"""\subtitle{with """ + ca + r"""}
+"""
+
+date = r"""\date{""" + eventdate + r"""}
 \author{@theCADesk}
 
 \begin{document}
@@ -31,4 +46,9 @@ end = r"""\title{Exciting Title!}
 
 \end{document}"""
 
-flags.o.write(top + image + end)
+
+flags.o.write(top + watermark + maketitle + name + date)
+##pdf = flags.o.name.replace(".tex", ".pdf")
+##
+##create_pdf(flags.o.name, pdf)
+
