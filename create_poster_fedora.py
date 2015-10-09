@@ -5,35 +5,21 @@ import os
 
 #builds the actual LaTeX file
 
-content=r"""\documentclass{beamer}
+content=r"""\documentclass{article}
 
-\usetheme{simple}
-
-
-\usepackage{lmodern}
-\usepackage[scale=2]{ccicons}
-"""
-#watermark = "\setwatermark{\includegraphics[height=8cm]{""" + image + "}}"
-
-maketitle = r"""\title{""" + title + r"""}
-"""
-name = r"""\subtitle{with """ + ca + r"""}
-"""
-
-date = r"""\date{""" + eventdate + r"""}
-\author{@theCADesk}
-
+\usepackage{tikz}
+\usepackage[top=2cm, bottom=2cm, outer=0cm, inner=0cm]{geometry}
 \begin{document}
-
-\maketitle
-
-
+ Some content
+\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{%(image)}};
+\clearpage
+text
 
 \end{document}"""
 #parser data below to make the input fields
 
 parser=argparse.ArgumentParser()
-#parser.add_argument('-bg', '--image')
+parser.add_argument('-bg', '--image', default='Capture.PNG')
 parser.add_argument('-t', '--title', default='Aaron would be ashamed that you are not paying attention')
 parser.add_argument('-ca', '--ca', default='Nemo')
 parser.add_argument('-d', '--date', default='4/20')
