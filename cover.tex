@@ -1,0 +1,11 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usepackage[top=2cm, bottom=2cm, outer=0cm, inner=0cm]{geometry}
+\begin{document}
+ Some content
+\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{image}};
+\clearpage
+text
+
+\end{document}
