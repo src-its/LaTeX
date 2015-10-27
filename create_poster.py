@@ -16,6 +16,7 @@ flags = p.parse_args()
 ca = input("Who's hosting this event? ")
 eventdate = input("When's it happening? ")
 title = input("What's the event's title? ")
+blurb = input("What additional information do you want on the slide (what's your blurb?)")
 image = input("Where is the background image you want to use? ")
 
 image = image.replace("\\", "/")
@@ -35,20 +36,20 @@ maketitle = r"""\title{""" + title + r"""}
 name = r"""\subtitle{with """ + ca + r"""}
 """
 
-date = r"""\date{""" + eventdate + r"""}
+date = r"""\date{""" + eventdate + r"""\\[2em]
+{\footnotesize """ + blurb + r""" }}
 \author{@theCADesk}
 
 \begin{document}
 
 \maketitle
 
-
-
-\end{document}"""
+\end{document}
+"""
 
 
 flags.o.write(top + watermark + maketitle + name + date)
-##pdf = flags.o.name.replace(".tex", ".pdf")
-##
-##create_pdf(flags.o.name, pdf)
+pdf = "example.pdf"
+
+create_pdf(flags.o.name, pdf)
 
