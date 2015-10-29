@@ -2,16 +2,16 @@ import argparse
 import subprocess
 
 def create_pdf(input_filename, output_filename):
-    process = subprocess.Popen([
-        "C:\\Program Files (x86)\\MiKTeX 2.9\\miktex\\bin\\latex.exe",
-        "-output-format=pdf",
-        "-job-name=" + output_filename, input_filename])
-    process.wait()
+    subprocess.call("pdflatex " + input_filename, shell=True)
 
 p = argparse.ArgumentParser()
 p.add_argument('-o', type=argparse.FileType('w'), metavar='output',
                help='File to be written to.')
+p.add_argument('-p', type=str, metavar='path', default="C:\\Program Files (x86)\\MiKTeX 2.9\\miktex\\bin\\latex.exe", help='location of latex compiler')
 flags = p.parse_args()
+
+compiler = flags.p
+print(compiler)
 
 ca = input("Who's hosting this event? ")
 eventdate = input("When's it happening? ")
