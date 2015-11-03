@@ -3,6 +3,9 @@ import subprocess
 
 def create_pdf(input_filename, output_filename):
     subprocess.call("pdflatex " + input_filename, shell=True)
+    pdf = input_filename.replace(".tex", ".pdf")
+    gif = pdf.replace(".pdf", ".gif")
+    subprocess.call("imconvert " + pdf + " " +  gif, shell = True)
 
 p = argparse.ArgumentParser()
 p.add_argument('-o', type=argparse.FileType('w'), metavar='output',
@@ -21,7 +24,7 @@ image = input("Where is the background image you want to use? ")
 
 image = image.replace("\\", "/")
 
-top = r"""\documentclass{beamer}
+top = r"""\documentclass[aspectratio=169]{beamer}
 
 \usetheme{simple}
 
@@ -51,5 +54,5 @@ date = r"""\date{""" + eventdate + r"""\\[2em]
 flags.o.write(top + watermark + maketitle + name + date)
 pdf = "example.pdf"
 
-create_pdf(flags.o.name, pdf)
+#create_pdf(flags.o.name, pdf)
 
